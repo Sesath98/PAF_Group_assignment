@@ -13,6 +13,7 @@ public class project {
 
 	 //Provide the correct details: DBServer/DBName, username, password
 	 con = DriverManager.getConnection("jdbc:mysql://localhost:3306/projectmanagement", "root", "");
+	 System.out.println("Connection successful");
 	 }
 	 catch (Exception e)
 	 {e.printStackTrace();}
