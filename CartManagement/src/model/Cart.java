@@ -117,6 +117,41 @@ public class Cart {
 	 return output; 
 	 } 
 	
+	public String updateItem(String id, String name, String noofproduct)
+	{ 
+		 String output = ""; 
+		 try
+		 { 
+		 Connection con = connect(); 
+		 if (con == null) 
+		 {return "Error while connecting to the database for updating."; } 
+		 // create a prepared statement
+		 String query = "UPDATE product SET name=?,noofproduct=? WHERE id=?"; 
+		 PreparedStatement preparedStmt = con.prepareStatement(query); 
+		 
+		 // binding values
+		
+		 preparedStmt.setString(1, name); 
+		 preparedStmt.setString(2, noofproduct); 
+	
+		 preparedStmt.setString(3, id); 
+		 
+		 
+		 
+		 // execute the statement
+		 preparedStmt.execute(); 
+		 con.close(); 
+		 output = "Updated successfully"; 
+		 } 
+		 catch (Exception e) 
+		 { 
+		 output = "Error while updating the item."; 
+		 System.err.println(e.getMessage()); 
+		 } 
+		 return output; 
+		 }
+	
+	
 	
 	
 	}
