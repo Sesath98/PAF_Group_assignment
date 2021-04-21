@@ -16,8 +16,6 @@ import org.jsoup.nodes.Document;
 public class Usermodel {
 	
 	
-	
-
 	private Connection connect()
 	{
 		
@@ -56,7 +54,7 @@ public class Usermodel {
 	          + " values (?, ?, ?, ?, ?)";
 	
 	PreparedStatement preparedStmt = con.prepareStatement(query);
-	// binding values
+	
 	
 	preparedStmt.setInt(1, id);
 	preparedStmt.setString(2, name);

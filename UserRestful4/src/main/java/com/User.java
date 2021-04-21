@@ -21,14 +21,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 
-@Path("/User")
+@Path("/user")
 public class User {
 		
 		Usermodel UserObj = new Usermodel();
 		
 		@GET
-		@Path("/")
-		@Produces(MediaType.TEXT_HTML)
+		@Path("/all")
+		@Produces(MediaType.APPLICATION_JSON)
 		
 		public String readItems()
 		{
