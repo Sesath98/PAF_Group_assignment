@@ -54,7 +54,7 @@ public class User {
 		
 		
 		@PUT
-		@Path("/")
+		@Path("/delete")
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.TEXT_PLAIN)
 		public String updateUsers(String itemData)
