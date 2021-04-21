@@ -107,7 +107,7 @@ output += "</table>";
 }
 catch (Exception e)
 {
-output = "Error when reading the Data ";
+output = "Error when reading the Project Data ";
 System.err.println(e.getMessage());
 }
 return output;
@@ -121,7 +121,7 @@ public String updateProject(String id,String aname, String pcategory, String pti
 	 {
 	 Connection con = connect();
 	 if (con == null)
-	 {return "Error while connecting to the database for updating."; }
+	 {return "Did'nt connect to the database update the Project data"; }
 	 // create a prepared statement
 	 String query = "UPDATE project SET  authorName=?,projectCategory=?,projectName=?,projectPrice=?,authorEmail=?,projectDesc=?  WHERE projectID=?";
 	 PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -140,10 +140,37 @@ public String updateProject(String id,String aname, String pcategory, String pti
 	 }
 	 catch (Exception e)
 	 {
-	 output = "Error while updating the Peoject";
+	 output = "Error when updating the Peoject";
 	 System.err.println(e.getMessage());
 	 }
 	 return output;
 	 }
 	
+
+public String deleteProject(String projectID)
+	 {
+	 String output = "";
+	 try
+	 {
+	 Connection con = connect();
+	 if (con == null)
+	 {return "Did'nt connect to the database when deleting data"; }
+	 // create a prepared statement
+	 String query = "delete from project where projectID=?";
+	 PreparedStatement preparedStmt = con.prepareStatement(query);
+	 // binding values
+	 preparedStmt.setInt(1, Integer.parseInt(projectID));
+	 // execute the statement
+	 preparedStmt.execute();
+	 con.close();
+	 output = "Deleted successfully";
+	 }
+	 catch (Exception e)
+	 {
+	 output = "Error while deleting the item.";
+	 System.err.println(e.getMessage());
+	 }
+	 return output;
+	 }
+
 }
