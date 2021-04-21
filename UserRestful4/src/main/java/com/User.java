@@ -21,7 +21,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 
-@Path("/")
+@Path("/user")
 public class User {
 		
 		Usermodel UserObj = new Usermodel();
