@@ -21,14 +21,14 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 
-@Path("/User")
+@Path("/user")
 public class User {
 		
 		Usermodel UserObj = new Usermodel();
 		
 		@GET
-		@Path("/")
-		@Produces(MediaType.TEXT_HTML)
+		@Path("/all")
+		@Produces(MediaType.APPLICATION_JSON)
 		
 		public String readItems()
 		{
@@ -39,7 +39,7 @@ public class User {
 	
 		
 		@POST
-		@Path("/")
+		@Path("/insert")
 		@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 		@Produces(MediaType.TEXT_PLAIN)
 		public String insertUsers(@FormParam("userId") int userId,
@@ -54,7 +54,7 @@ public class User {
 		
 		
 		@PUT
-		@Path("/")
+		@Path("/delete")
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.TEXT_PLAIN)
 		public String updateUsers(String itemData)
@@ -74,7 +74,7 @@ public class User {
 		
 		
 		@DELETE
-		@Path("/")
+		@Path("/delete")
 		@Consumes(MediaType.APPLICATION_XML)
 		@Produces(MediaType.TEXT_PLAIN)
 		public String deleteItem(String itemData)
