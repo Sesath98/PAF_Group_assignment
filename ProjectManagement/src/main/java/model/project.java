@@ -30,7 +30,7 @@ public String insertProject(String aname, String pcategory, String ptitile,Strin
 	 {
 	 Connection con = connect();
 	 if (con == null)
-	 {return "Error while connecting to the database for inserting."; }
+	 {return "Did'nt connect to the database when inserting data"; }
 	 // create a prepared statement
 	 String query = "insert into project (`projectID`,`authorName`,`projectCategory`,`projectName`,`projectPrice`,`authorEmail`,`projectDesc`)"
 	 + " values (?, ?, ?, ?, ?,?,?)";
@@ -50,7 +50,7 @@ public String insertProject(String aname, String pcategory, String ptitile,Strin
 	 }
 	 catch (Exception e)
 	 {
-	 output = "Error while inserting the Project";
+	 output = "Error while inserting the Project Details";
 	 System.err.println(e.getMessage());
 	 }
 	 return output;
@@ -107,11 +107,43 @@ output += "</table>";
 }
 catch (Exception e)
 {
-output = "Error while reading the items.";
+output = "Error when reading the Data ";
 System.err.println(e.getMessage());
 }
 return output;
 }
 
+
+public String updateProject(String id,String aname, String pcategory, String ptitile,String price, String aemail, String pdesc)
+{
+	 String output = "";
+	 try
+	 {
+	 Connection con = connect();
+	 if (con == null)
+	 {return "Error while connecting to the database for updating."; }
+	 // create a prepared statement
+	 String query = "UPDATE project SET  authorName=?,projectCategory=?,projectName=?,projectPrice=?,authorEmail=?,projectDesc=?  WHERE projectID=?";
+	 PreparedStatement preparedStmt = con.prepareStatement(query);
+	 // binding values
+	 preparedStmt.setString(1, aname);
+	 preparedStmt.setString(2, pcategory);
+	 preparedStmt.setString(3, ptitile);
+	 preparedStmt.setDouble(4, Double.parseDouble(price));
+	 preparedStmt.setString(5, aemail);
+	 preparedStmt.setString(6, pdesc);
+	 preparedStmt.setInt(7, Integer.parseInt(id));
+	 // execute the statement
+	 preparedStmt.execute();
+	 con.close();
+	 output = "Updated successfully";
+	 }
+	 catch (Exception e)
+	 {
+	 output = "Error while updating the Peoject";
+	 System.err.println(e.getMessage());
+	 }
+	 return output;
+	 }
 	
 }
