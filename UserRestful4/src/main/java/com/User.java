@@ -28,7 +28,7 @@ public class User {
 		
 		@GET
 		@Path("/all")
-		@Produces(MediaType.APPLICATION_JSON)
+		@Produces(MediaType.TEXT_HTML)
 		
 		public String readItems()
 		{
@@ -54,7 +54,7 @@ public class User {
 		
 		
 		@PUT
-		@Path("/delete")
+		@Path("/update")
 		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.TEXT_PLAIN)
 		public String updateUsers(String itemData)
@@ -75,14 +75,19 @@ public class User {
 		
 		@DELETE
 		@Path("/delete")
-		@Consumes(MediaType.APPLICATION_XML)
+		@Consumes(MediaType.APPLICATION_JSON)
 		@Produces(MediaType.TEXT_PLAIN)
-		public String deleteItem(String itemData)
+		public String deleteItem(String DeleteData)
 		{
-		//Convert the input string to an XML document
-		Document doc = Jsoup.parse(itemData, "", Parser.xmlParser());
-		//Read the value from the element <id>
-		String UserID = doc.select("userId").text();
+		
+			//Convert the input string to an JSON Object
+
+		
+		JsonObject UserObject = new JsonParser().parse(DeleteData).getAsJsonObject();
+		
+		//Read the value from the JSON Object
+		
+		String UserID = UserObject.get("userId").getAsString();
 		String output = UserObj.deleteUsers(UserID);
 		return output;
 		}
