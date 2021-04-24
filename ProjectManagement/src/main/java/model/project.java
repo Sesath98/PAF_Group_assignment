@@ -67,10 +67,9 @@ if (con == null)
 // Prepare the html table to be displayed
 output = "<table border='1'><tr><th>Project Id</<th><th>Author Name</th><th>Project Category</th>" +
 "<th>Project Name</th>" +
-"<th>Project Price</th>" +		
-"<th>Author Email ($)</th>" +
-"<th>Project Description<th>" +
-"<th>Update</th></tr>";
+"<th>Project Price ($)</th>" +		
+"<th>Author Email </th>" +
+"<th>Project Description<th></tr>";
 
 String query = "select * from project";
 Statement stmt = con.createStatement();
