@@ -65,13 +65,11 @@ Connection con = connect();
 if (con == null)
 {return "Did'nt connect to the database"; }
 // Prepare the html table to be displayed
-output = "<table border='1'><tr><th>Author Name</th><th>Project Category</th>" +
+output = "<table border='1'><tr><th>Project Id</<th><th>Author Name</th><th>Project Category</th>" +
 "<th>Project Name</th>" +
-"<th>Project Price</th>" +		
-"<th>Author Email ($)</th>" +
-"<th>Project Description<th>" +
-"<th>Update</th>"+
-"<th>Remove</th></tr>";
+"<th>Project Price ($)</th>" +		
+"<th>Author Email </th>" +
+"<th>Project Description<th></tr>";
 
 String query = "select * from project";
 Statement stmt = con.createStatement();
@@ -95,11 +93,11 @@ output += "<td>" + projectPrice + "</td>";
 output += "<td>" + authorEmail + "</td>";
 output += "<td>" + projectDesc + "</td>";
 // buttons
-output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>"
-+ "<td><form method='post' action='items.jsp'>"
-+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
-+ "<input name='itemID' type='hidden' value='" + projectID 
-+ "'>" + "</form></td></tr>";
+//output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>"
+//+ "<td><form method='post' action='items.jsp'>"
+//+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
+//+ "<input name='itemID' type='hidden' value='" + projectID 
+//+ "'>" + "</form></td></tr>";
 }
 con.close();
 // Complete the html table
