@@ -17,7 +17,6 @@ public class Usermodel {
 	
 	
 	
-
 	private Connection connect()
 	{
 		
@@ -109,7 +108,7 @@ public class Usermodel {
 	output = "<table border='1'><tr><th>User ID</th><th>User Name</th>" +
 	"<th>Phone number</th>" +
 	"<th>Address</th>" +
-	"<th>Designation</th><th>Remove</th></tr>";
+	"<th>Designation</th></tr>";
 	
 	String query = "select * from users";
 	
@@ -133,13 +132,19 @@ public class Usermodel {
 	output += "<td>" + phone_num + "</td>";
 	output += "<td>" + address_ + "</td>";
 	output += "<td>" + designation_ + "</td>";
-	// buttons
+
 	
-	output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"+ "<td><form method='post' action='items.jsp'>"+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
-	+ "<input name='itemID' type='hidden' value='" + id
-	+ "'>" + "</form></td></tr>";
-	
+	//	// buttons
+//	
+//	output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"+ "<td><form method='post' action='items.jsp'>"+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
+//	+ "<input name='itemID' type='hidden' value='" + id
+//	+ "'>" + "</form></td></tr>";
+//	
 	}
+	
+	
+	
+	
 	con.close();
 	// Complete the html table
 	output += "</table>";
@@ -157,6 +162,11 @@ public class Usermodel {
 	return output;
 	
 	}
+	
+	
+	
+	
+	
 	
 	public String updateUsers(String id, String name, String phone_num, String address_ , String designation_)
 	
@@ -253,10 +263,4 @@ public class Usermodel {
 	}
 
 	}
-
-	
-
-	
-
-		
 
