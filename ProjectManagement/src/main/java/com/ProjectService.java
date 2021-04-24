@@ -74,10 +74,10 @@ public class ProjectService {
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteProject(String projectData)
 	{
-	//Convert the input string to an XML document
+	
 	JsonObject projectObject = new JsonParser().parse(projectData).getAsJsonObject();
 
-	//Read the value from the element <itemID>
+	
 	 String projectID = projectObject.get("projectID").getAsString();
 	 String output = projectObj.deleteProject(projectID);
 	return output;
