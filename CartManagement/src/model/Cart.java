@@ -65,11 +65,11 @@ public class Cart {
 		 output += "<td>" + noofproduct + "</td>";
 		 output +="<td>" +getTotalPrice()+ "</td>";
 		 // buttons
-		 output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>"
-		 + "<td><form method='post' action='items.jsp'>"
-		 + "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
-		 + "<input name='itemID' type='hidden' value='" + id 
-		 + "'>" + "</form></td></tr>"; 
+//		 output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>"
+//		 + "<td><form method='post' action='items.jsp'>"
+//		 + "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
+//		 + "<input name='itemID' type='hidden' value='" + id 
+//		 + "'>" + "</form></td></tr>"; 
 		 } 
 		 con.close(); 
 		 // Complete the html table
