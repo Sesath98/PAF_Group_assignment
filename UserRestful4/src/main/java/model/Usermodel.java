@@ -16,7 +16,7 @@ import org.jsoup.nodes.Document;
 public class Usermodel {
 	
 	
-	
+	//creating database connection 
 	private Connection connect()
 	{
 		
@@ -26,7 +26,7 @@ public class Usermodel {
 	{
 		
 	Class.forName("com.mysql.cj.jdbc.Driver");
-	//Provide the correct details: DBServer/DBName, username, password
+	
 	con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paf_project ", "root", "");
 	
 	}
@@ -39,6 +39,8 @@ public class Usermodel {
 	}
 	
 	
+	
+	//inserting User values into database
 	public String insertUsers(int id, String name, String phone_num, String address_ , String designation_)
 	{
 	String output = "";
@@ -50,7 +52,7 @@ public class Usermodel {
 		return "Error while connecting to the database for inserting."; 
 		
 	}
-	// create a prepared statement
+	// create a prepared statement 
 	String query = " insert into users(userId,username,phone_no,address,designation)"
 	          + " values (?, ?, ?, ?, ?)";
 	
@@ -66,8 +68,6 @@ public class Usermodel {
 
 	
 	// execute the statement
-	
-	
 	preparedStmt.execute();
 	con.close();
 	output = "Inserted successfully";
@@ -77,7 +77,7 @@ public class Usermodel {
 	catch (Exception e)
 	
 	{
-	output = "Error while inserting the users.";
+	output = "Error while inserting the users into database.";
 	System.err.println(e.getMessage());
 	
 	}
@@ -104,7 +104,7 @@ public class Usermodel {
 		return "Error while connecting to the database for reading."; 
 		
 	}
-	// Prepare the html table to be displayed
+	
 	output = "<table border='1'><tr><th>User ID</th><th>User Name</th>" +
 	"<th>Phone number</th>" +
 	"<th>Address</th>" +
@@ -116,7 +116,7 @@ public class Usermodel {
 	ResultSet rs = stmt.executeQuery(query);
 	
 	
-	// iterate through the rows in the result set
+	
 	while (rs.next())
 	{
 		
@@ -133,18 +133,10 @@ public class Usermodel {
 	output += "<td>" + address_ + "</td>";
 	output += "<td>" + designation_ + "</td>";
 
-	
-	//	// buttons
-//	
-//	output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"+ "<td><form method='post' action='items.jsp'>"+ "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
-//	+ "<input name='itemID' type='hidden' value='" + id
-//	+ "'>" + "</form></td></tr>";
-//	
+
 	}
 	
-	
-	
-	
+
 	con.close();
 	// Complete the html table
 	output += "</table>";
