@@ -44,7 +44,7 @@ public class Cart {
 		 "<th>Product Price</th>" + 
 		 "<th>Product Quantity</th>" +
 		 "<th> Total price</th>"+
-		 "<th>Update</th><th>Remove</th></tr>"; 
+		 "</tr>"; 
 		 
 		 String query = "select * from product"; 
 		 Statement stmt = con.createStatement(); 
