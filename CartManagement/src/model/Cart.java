@@ -136,8 +136,7 @@ public class Cart {
 		
 		 preparedStmt.setString(1, name); 
 		 preparedStmt.setString(2, noofproduct); 
-	
-		 preparedStmt.setString(3, id); 
+	     preparedStmt.setString(3, id); 
 		 
 		 
 		 
